@@ -39,11 +39,6 @@ const _ = {
 
         }
     },
-
-
-    // has method
-
-
     //has Method
     has(object, key) {
         let newValue = object[key] !== undefined;
