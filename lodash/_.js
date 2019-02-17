@@ -9,7 +9,7 @@ const _ = {
 
     //InRange method
     inRange(number, start, end) {
-        if (end === undefined) {
+        if (!end) {
             end = start;
             start = 0;
         }
@@ -33,7 +33,7 @@ const _ = {
         } else {
             let padding = length - string.length;
             let startPaddingLength = Math.floor(padding / 2);
-            let endPaddingLength = Math.ceil(padding - startPaddingLength);
+            let endPaddingLength = padding - startPaddingLength;
             let paddedString = ' ';
             return paddedString.repeat(startPaddingLength) + string + paddedString.repeat(endPaddingLength);
 
@@ -42,27 +42,23 @@ const _ = {
 
 
     // has method
-    has(object, key) {
-        let firstValue = (key === undefined);
-        let secondValue = Object !== undefined;
-        console.log()
 
-        let hasValue = firstValue || secondValue;
-        return hasValue;
+
+    //has Method
+    has(object, key) {
+        let newValue = object[key] !== undefined;
+        return newValue;
     },
 
     // invert method
     invert(object) {
         let invertedObject = {};
-        let value = {};
         for (let key in object) {
-            let originalValue = key.value;
-            invertedObject.key = originalValue;
-            invertedObject.originalValue = key;
+            let originalValue = object[key];
+            invertedObject[originalValue] = key;
         }
         return invertedObject;
     },
-
     // find key method
     findKey(object, predicate) {
         for (let key in object) {
@@ -71,10 +67,8 @@ const _ = {
             if (predicateReturnValue) {
                 return key;
             }
-
         }
         return undefined;
-
     },
     //drop method
     drop(array, number) {
