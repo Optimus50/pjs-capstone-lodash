@@ -66,16 +66,6 @@ const _ = {
         return undefined;
     },
     //drop method
-    drop(array, number) {
-        if (!number) {
-            number = 1;
-        }
-        let droppedArray = array.slice(number);
-        return droppedArray;
-
-    },
-
-    //drop method
 
     drop(array1, number) {
         if (!number) {
